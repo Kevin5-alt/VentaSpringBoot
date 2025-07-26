@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Facturas</title>
+</head>
+<body>
+  <h1>Facturas</h1>
+  <a th:href="@{/facturas/nuevo}">Nueva Factura</a>
+  <table>
+    <tr>
+      <th>ID</th><th>Fecha Compra</th><th>Fecha Llegada</th><th>Estado</th><th>Acciones</th>
+    </tr>
+    <tr th:each="f : ${items}">
+      <td th:text="${f.idFactura}"></td>
+      <td th:text="${f.fechaCompra}"></td>
+      <td th:text="${f.fechaLlegada}"></td>
+      <td th:text="${f.estado}"></td>
+      <td>
+        <a th:href="@{'/facturas/editar/' + ${f.idFactura}}">Editar</a>
+        <a th:href="@{'/facturas/eliminar/' + ${f.idFactura}}">Eliminar</a>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+

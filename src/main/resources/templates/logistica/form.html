@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Logística</title>
+</head>
+<body>
+  <h1 th:text="${item.idLogistica} != null ? 'Editar Envío' : 'Nuevo Envío'"></h1>
+  <form th:action="@{/logistica/guardar}" th:object="${item}" method="post">
+    <label>Dirección:</label>
+    <input type="text" th:field="*{direccion}" required/>
+    <label>Fecha:</label>
+    <input type="date" th:field="*{fecha}" required/>
+    <label>Estado:</label>
+    <input type="text" th:field="*{estado}" required/>
+    <label>Factura ID:</label>
+    <input type="number" th:field="*{factura.idFactura}" required/>
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+</html>
+
