@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Inventario</title>
+</head>
+<body>
+  <h1 th:text="${item.idInventario} != null ? 'Editar Stock' : 'Nuevo Stock'"></h1>
+  <form th:action="@{/inventario/guardar}" th:object="${item}" method="post">
+    <label>Cantidad Disponible:</label>
+    <input type="number" th:field="*{cantidadDisponible}" required/>
+    <label>Producto ID:</label>
+    <input type="number" th:field="*{producto.idProducto}" required/>
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>DetalleFactura</title>
+</head>
+<body>
+  <h1>DetalleFactura</h1>
+  <a th:href="@{/detallefactura/nuevo}">Nuevo Detalle</a>
+  <table>
+    <tr>
+      <th>ID</th><th>Cantidad</th><th>Precio Unitario</th><th>Factura ID</th><th>Producto ID</th><th>Acciones</th>
+    </tr>
+    <tr th:each="d : ${items}">
+      <td th:text="${d.idDetalleFact}"></td>
+      <td th:text="${d.cantidad}"></td>
+      <td th:text="${d.precioUnitario}"></td>
+      <td th:text="${d.factura.idFactura}"></td>
+      <td th:text="${d.producto.idProducto}"></td>
+      <td>
+        <a th:href="@{'/detallefactura/editar/' + ${d.idDetalleFact}}">Editar</a>
+        <a th:href="@{'/detallefactura/eliminar/' + ${d.idDetalleFact}}">Eliminar</a>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+

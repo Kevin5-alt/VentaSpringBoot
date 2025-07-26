@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Estrategia Internacional</title>
+</head>
+<body>
+  <h1 th:text="${item.idEstrategia} != null ? 'Editar Estrategia' : 'Nueva Estrategia'"></h1>
+  <form th:action="@{/estrategiainternacionalizacion/guardar}" th:object="${item}" method="post">
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required/>
+    <label>Descripción:</label>
+    <textarea th:field="*{descripcion}" rows="3"></textarea>
+    <label>Región:</label>
+    <input type="text" th:field="*{region}" required/>
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+</html>

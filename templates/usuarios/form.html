@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Usuario</title>
+</head>
+<body>
+  <h1 th:text="${item.idUsuario} != null ? 'Editar Usuario' : 'Nuevo Usuario'"></h1>
+  <form th:action="@{/usuarios/guardar}" th:object="${item}" method="post">
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombreUsuario}" maxlength="80" required/>
+    <label>Correo:</label>
+    <input type="email" th:field="*{correoUsuario}" maxlength="120" required/>
+    <label>Teléfono:</label>
+    <input type="number" th:field="*{telefonoUsuario}"/>
+    <label>Contraseña:</label>
+    <input type="password" th:field="*{contrasenaUsuario}" maxlength="50" required/>
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+</html>
+

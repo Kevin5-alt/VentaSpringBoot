@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario DatosCliente</title>
+</head>
+<body>
+  <h1 th:text="${item.idDatosCliente} != null ? 'Editar Datos' : 'Nuevo Registro'"></h1>
+  <form th:action="@{/datoscliente/guardar}" th:object="${item}" method="post">
+    <label>Info Adicional:</label>
+    <textarea th:field="*{informacionAdicional}" rows="3"></textarea>
+    <label>ID Usuario:</label>
+    <input type="number" th:field="*{usuario.idUsuario}" required/>
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+</html>
+

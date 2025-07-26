@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Factura</title>
+</head>
+<body>
+  <h1 th:text="${item.idFactura} != null ? 'Editar Factura' : 'Nueva Factura'"></h1>
+  <form th:action="@{/facturas/guardar}" th:object="${item}" method="post">
+    <label>Fecha Compra:</label>
+    <input type="date" th:field="*{fechaCompra}" required/>
+    <label>Fecha Llegada:</label>
+    <input type="date" th:field="*{fechaLlegada}" required/>
+    <label>Estado:</label>
+    <input type="text" th:field="*{estado}" required/>
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+</html>
+

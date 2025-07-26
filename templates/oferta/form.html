@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Oferta</title>
+</head>
+<body>
+  <h1 th:text="${item.idOferta} != null ? 'Editar Oferta' : 'Nueva Oferta'"></h1>
+  <form th:action="@{/ofertas/guardar}" th:object="${item}" method="post">
+    <label>Fecha Inicio:</label>
+    <input type="date" th:field="*{fechaInicio}" required/>
+    <label>Fecha Fin:</label>
+    <input type="date" th:field="*{fechaFin}" required/>
+    <label>% Descuento:</label>
+    <input type="number" th:field="*{porcentaje}" required/>
+    <button type="submit">Guardar</button>
+  </form>
+</body>
+</html>

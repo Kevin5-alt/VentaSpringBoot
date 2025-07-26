@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Estrategias Internacionales</title>
+</head>
+<body>
+  <h1>Estrategias Internacionales</h1>
+  <a th:href="@{/estrategiainternacionalizacion/nuevo}">Nueva Estrategia</a>
+  <table>
+    <tr>
+      <th>ID</th><th>Nombre</th><th>Descripción</th><th>Región</th><th>Acciones</th>
+    </tr>
+    <tr th:each="e : ${items}">
+      <td th:text="${e.idEstrategia}"></td>
+      <td th:text="${e.nombre}"></td>
+      <td th:text="${e.descripcion}"></td>
+      <td th:text="${e.region}"></td>
+      <td>
+        <a th:href="@{'/estrategiainternacionalizacion/editar/' + ${e.idEstrategia}}">Editar</a>
+        <a th:href="@{'/estrategiainternacionalizacion/eliminar/' + ${e.idEstrategia}}">Eliminar</a>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
